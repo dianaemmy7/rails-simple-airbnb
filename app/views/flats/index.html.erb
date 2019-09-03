@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-12">
+    <h1>All our flats (<%= @flats.length %>)</h1>
+  </div>s
+</div>
+<div class="cards-container">
+<div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col-4">
+      <div class="flat-card">
+        <div class="flat-card-image" style="background-image: url('https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200')"></div>
+        <div class="flat-card-content">
+          <!-- if statement & checkbox image -->
+        <div class="flat-card-title">
+          <h4><%= flat.name %></h4>
+        </div>
+        <p><%= flat.address %></p>
+        <div class="flex">
+          <div class="flex">
+            <i class="material-icons mr-2">people</i>
+            <span><%= flat.number_of_guests %></span>
+          </div>
+          <div class="flex ml-3">
+            <i class="material-icons mr-2">euro_symbol</i>
+            <p><%= flat.price_per_night %></p>
+          </div>
+        </div>
+        <div class="flat-card-actions">
+          <p><%=link_to "More info", flat_path(flat) %></p>
+          <%=link_to edit_flat_path(flat) do %>
+            <i class="fa fa-pencil"></i>
+          <% end %>
+          <%= link_to flat_path(flat),
+            method: :delete,
+            data: { confirm: "Are you sure?" } do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
+        </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>

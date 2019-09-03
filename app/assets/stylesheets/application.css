@@ -24,6 +24,10 @@
     background-color: #fff;
 }
 
+.margin-top-negative {
+    margin-top: -75px;
+}
+
 /*.cards-container {
   display: flex;
   width: 100%;
